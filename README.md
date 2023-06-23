@@ -56,7 +56,7 @@ If you want to customize the website for your own school, you can follow these s
 
 ## Authors
 
-This project was developed by Karl Harrenga. If you have any questions or suggestions, you can contact me at wick11126@gmail.com.
+This project was developed by Karl Harrenga. If you have any questions or suggestions, you can contact me at karl.cornelius100@gmail.com.
 
 ## License
 
