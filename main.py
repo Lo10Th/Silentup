@@ -25,7 +25,7 @@ def home(name):
         new_filename = f"{name}.{extension}"  # Füge den umbenannten Namen und die Dateiendung zusammen
         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(filename))) # Speichere die Datei
         os.rename(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(filename)), os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(new_filename))) # Benenne die Datei um
-        return render_template('bedanken.html')
+        return render_template('thanks.html')
     return render_template('index.html', form=form)
 
 if __name__ == '__main__':
