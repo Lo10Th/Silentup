@@ -19,12 +19,12 @@ def home(name):
     form = UploadFileForm()
     if form.validate_on_submit():
         file = form.file.data
-        filename = file.filename  # Speichere den ursprünglichen Dateinamen
-        filename = secure_filename(filename.rsplit('.', 1)[0])  # Bereinige den Namensteil des Dateinamens
-        extension = file.filename.rsplit('.', 1)[1]  # Extrahiere die Dateiendung
-        new_filename = f"{name}.{extension}"  # Füge den umbenannten Namen und die Dateiendung zusammen
-        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(filename))) # Speichere die Datei
-        os.rename(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(filename)), os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(new_filename))) # Benenne die Datei um
+        filename = file.filename  # Saves the file with the original file name
+        filename = secure_filename(filename.rsplit('.', 1)[0])  # Cleans up the name part of the file name
+        extension = file.filename.rsplit('.', 1)[1]  # Extracts the file extension
+        new_filename = f"{name}.{extension}"  # Merge the user's name and file extension
+        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(filename))) # Saves the file
+        os.rename(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(filename)), os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(new_filename))) # Renames the file
         return render_template('thanks.html')
     return render_template('index.html', form=form)
 
