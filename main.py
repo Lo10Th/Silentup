@@ -19,10 +19,10 @@ def home(name):
     form = UploadFileForm()
     if form.validate_on_submit():
         file = form.file.data
-        filename = file.filename  # Saves the file with the original file name
-        filename = secure_filename(filename.rsplit('.', 1)[0])  # Cleans up the name part of the file name
-        extension = file.filename.rsplit('.', 1)[1]  # Extracts the file extension
-        new_filename = f"{name}.{extension}"  # Merge the user's name and file extension
+        filename = file.filename
+        filename = secure_filename(filename.rsplit('.', 1)[0])
+        extension = file.filename.rsplit('.', 1)[1]
+        new_filename = f"{name}.{extension}"
         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(filename))) # Saves the file
         os.rename(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(filename)), os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(new_filename))) # Renames the file
         return render_template('thanks.html')
