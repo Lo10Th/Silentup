@@ -39,6 +39,25 @@ To run the File Transfer Website on your local system, you need to follow these 
    ```
 5. Open your web browser and visit the URL `http://localhost:5000` to view the File Transfer Website.
 
+## Docker
+
+You can also run the File Transfer Website using Docker. However, please note that this setup is only suitable for local development and testing, as it will only run the application on localhost.
+
+Follow these steps to create a Docker image and run the Docker container:
+
+1. Ensure that Docker is installed on your system.
+2. Open a terminal or command prompt and navigate to the project directory.
+3. Build the Docker image by running the following command:
+   ```sh
+   docker build -t silentup .
+   ```
+4. Create and run a Docker container
+   ```sh
+   docker run -p 5000:5000 file-transfer-websitedocker run 
+   ```
+5. Now you are able to visit silentup on 
+   `http://localhost:5000`
+   
 ## Customizing the Website
 
 If you want to customize the website for your own school, you can follow these steps:
